@@ -1,10 +1,10 @@
-# 🚨 NovaBank Pix Fraud Radar — Real-Time Streaming ML & Graph Analytics
+# NovaBank Pix Fraud Radar — Real-Time Streaming ML & Graph Analytics
 
 Plataforma de **Machine Learning Engineering, Engenharia de Dados em Streaming (Scala Spark + Python) e Análise de Grafos** para prevenção a fraudes Pix em tempo real (`p99 < 10 ms`) no **NovaBank**.
 
 ---
 
-## 🏗️ Arquitetura em Tempo Real
+## Arquitetura em Tempo Real
 
 ```mermaid
 flowchart LR
@@ -22,11 +22,11 @@ flowchart LR
 
 ---
 
-## ✨ Destaques Técnicos
+## Destaques Técnicos
 
 1. **Simulador Pix com 4 Tipologias Reais de Golpe (`src/pix_fraud_radar/simulator.py`)**:
-   - **Golpe do Falso Parente**: chave Pix criada há $\le 2$ dias, valor $6\times$ a $14\times$ acima da média do cliente, horário noturno/madrugada.
-   - **Invasão de Conta (ATO — Account Takeover)**: dispositivo não reconhecido + redefinição recente de senha ($\le 30$ min) + drenagem de saldo ($\ge 85\%$).
+   - **Golpe do Falso Parente**: chave Pix criada há <= 2 dias, valor 6x a 14x acima da média do cliente, horário noturno/madrugada.
+   - **Invasão de Conta (ATO — Account Takeover)**: dispositivo não reconhecido + redefinição recente de senha (<= 30 min) + drenagem de saldo (>= 85%).
    - **Rede de Contas Laranja (Money Mule Ring)**: topologia *Fan-In* de vítimas para contas laranja (`MULE_001..006`) seguida de *Pass-Through* para conta centralizadora (`MULE_BOSS_001`).
    - **Smurfing / Estruturação**: rajada de 5 transferências seguidas entre R$ 960 e R$ 998 em menos de 3 minutos.
 2. **Feature Engineering Stateful em Scala Spark & Python (`scala/streaming-features/` e `src/pix_fraud_radar/streaming_features.py`)**:
@@ -42,7 +42,7 @@ flowchart LR
 
 ---
 
-## 🚀 Como Executar e Testar
+## Como Executar e Testar
 
 ```bash
 pip install -e ".[dev]" fastapi uvicorn httpx
