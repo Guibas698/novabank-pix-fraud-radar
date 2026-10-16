@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "novabank-pix-fraud-radar"
+version = "0.1.0"
+description = "Plataforma de detecção de fraude Pix em tempo real do NovaBank: Streaming Features (Scala/Python), Grafos de Contas Laranja, MLOps, Explicabilidade e Monitoramento de Drift (PSI)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Guibas698" }]
+dependencies = ["faker>=24.0", "pyyaml>=6.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

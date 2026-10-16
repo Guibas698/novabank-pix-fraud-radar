@@ -1,0 +1,32 @@
+services:
+  pix-fraud-scoring-api:
+    build: .
+    container_name: novabank-pix-fraud-api
+    ports:
+      - "8000:8000"
+    profiles: ["lite", "full"]
+
+  redis-feature-store:
+    image: redis:7-alpine
+    container_name: novabank-pix-redis
+    ports:
+      - "6379:6379"
+    profiles: ["full"]
+
+  redpanda-kafka:
+    image: docker.redpanda.com/redpandadata/redpanda:latest
+    container_name: novabank-pix-redpanda
+    command:
+      - redpanda
+      - start
+      - --overprovisioned
+      - --smp
+      - "1"
+      - --memory
+      - "512M"
+      - --reserve-memory
+      - "0M"
+    ports:
+      - "9092:9092"
+      - "8081:8081"
+    profiles: ["full"]
